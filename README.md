@@ -10,6 +10,8 @@ Our study planner
 ### Aiden Bain
 Username: `AidenBain`
 
+Email: aiden.bain@colorado.edu
+
 ### Eshaan Murali
 Username: `eshaanmurali`
 
