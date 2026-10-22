@@ -10,6 +10,9 @@ Our study planner
 ### Aiden Bain
 
 ### Eshaan Murali
+Username: `eshaanmurali`
+
+Email: eshaan.murali@colorado.edu
 
 ### Yegor Tryndin
 Username: `yegorxyz`
