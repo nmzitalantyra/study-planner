@@ -2,14 +2,19 @@
 Our study planner
 
 ## Group (014-2):
-Rayan Alsolami
 
-Andrey Bagaryan
+### Rayan Alsolami
 
-Aiden Bain
+### Andrey Bagaryan
 
-Eshaan Murali
+### Aiden Bain
 
-Yegor Tryndin
+### Eshaan Murali
 
-Zita Zitalantyra
+### Yegor Tryndin
+Username: `yegorxyz`
+Email: yegor.tryndin@colorado.edu
+
+### Zita Zitalantyra
+Username: `nmzitalantyra`
+Email: zita.zitalantyra@colorado.edu
