@@ -8,6 +8,7 @@ Our study planner
 ### Andrey Bagaryan
 
 ### Aiden Bain
+Username: `AidenBain`
 
 ### Eshaan Murali
 Username: `eshaanmurali`
