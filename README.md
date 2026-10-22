@@ -4,6 +4,9 @@ Our study planner
 ## Group (014-2):
 
 ### Rayan Alsolami
+Username: `RayanAlsolami`
+
+Email: ryan.alsolami@colorado.edu
 
 ### Andrey Bagaryan
 
