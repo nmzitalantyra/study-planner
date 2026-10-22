@@ -21,7 +21,7 @@ Team Members:
     Username: yegorxyz
     Email: yegor.tryndin@colorado.edu
 
-    Zita Zitalantyra
+    Ni Zitalantyra
     Username: nmzitalantyra
     Email: zita.zitalantyra@colorado.edu
 Application name: Study Sprout
