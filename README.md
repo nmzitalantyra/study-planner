@@ -1,7 +1,7 @@
 # Study Planner
 Our study planner
 
-## Group:
+## Group (014-2):
 Rayan Alsolami
 
 Andrey Bagaryan
