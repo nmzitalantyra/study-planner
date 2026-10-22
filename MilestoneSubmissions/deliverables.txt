@@ -24,6 +24,7 @@ Team Members:
     Zita Zitalantyra
     Username: nmzitalantyra
     Email: zita.zitalantyra@colorado.edu
-Application name: Study Planner
+Application name: Study Sprout
 Application description: TODO
 Audience: Students (undergrad and postgrad)
+Vision Statement: For collegiate students, who need help organizing their tasks. The Study Sprout is a study planner that helps students keep up with assignments. Unlike Notion, our product allows for collaboration on tasks.
