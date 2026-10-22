@@ -12,9 +12,11 @@ Our study planner
 ### Eshaan Murali
 
 ### Yegor Tryndin
-Username: `yegorxyz`\n
+Username: `yegorxyz`
+
 Email: yegor.tryndin@colorado.edu
 
 ### Zita Zitalantyra
-Username: `nmzitalantyra`\n
+Username: `nmzitalantyra`
+
 Email: zita.zitalantyra@colorado.edu
