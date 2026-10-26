@@ -9,6 +9,9 @@ Username: `RayanAlsolami`
 Email: ryan.alsolami@colorado.edu
 
 ### Andrey Bagaryan
+Username: `HamshenPanzer`
+
+Email: andrey.bagaryan@colorado.edu
 
 ### Aiden Bain
 Username: `AidenBain`
