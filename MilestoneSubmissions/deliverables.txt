@@ -25,10 +25,10 @@ Team Members:
     Username: nmzitalantyra
     Email: zita.zitalantyra@colorado.edu
 Application name: Study Sprout
-Application description: TODO
+Application description: Study Sprout is a study planner that allows you to see the tasks you need to accomplish. We have two views: one a list where you see all your assignments, and the other is a calendar format so you see when assignments are due. 
 Audience: Students (undergrad and postgrad)
 Vision Statement: For collegiate students, who need help organizing their tasks. The Study Sprout is a study planner that helps students keep up with assignments. Unlike Notion, our product allows for collaboration on tasks.
-Version Control: 
+Version Control: DONE
 Development Methodology: Agile Methodology
 Communication Plan: We plan to use Microsoft Teams. 
 Meeting Plan: We plan to meat with our TA during recitation.
