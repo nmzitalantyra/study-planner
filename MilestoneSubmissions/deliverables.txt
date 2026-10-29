@@ -32,5 +32,5 @@ Version Control: DONE
 Development Methodology: Agile Methodology
 Communication Plan: We plan to use Microsoft Teams. 
 Meeting Plan: We plan to meat with our TA during recitation.
-Use Case Diagram: 
-Wireframes:
+Use Case Diagram: Attached in this folder as a png
+Wireframes: Attached in this folder as a png
