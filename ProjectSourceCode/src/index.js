@@ -2,6 +2,8 @@
 const express = require('express');
 const { engine } = require('express-handlebars');
 
+const argon2 = require('argon2');
+
 const app = express();
 
 app.engine('hbs', engine({
