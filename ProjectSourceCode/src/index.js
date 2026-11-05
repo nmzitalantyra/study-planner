@@ -21,6 +21,10 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
+app.get('/leaderboard', (req, res) => {
+    res.render('leaderboard');
+})
+
 app.listen(3000, () => {
     console.log('Study Sprout running on port 3000');
 });
