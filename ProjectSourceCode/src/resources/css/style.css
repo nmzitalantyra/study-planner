@@ -1,0 +1,433 @@
+
+/* =========================
+   STUDY SPROUT - GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    color: #222222;
+    font-family: 'Lora', serif;
+}
+
+h1, h2, h3 {
+    font-family: 'DM Serif Display', serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================
+   NAVIGATION BAR
+========================= */
+
+.navbar {
+    background-color: #a8ff19;
+    border: 2px solid #222222;
+    padding: 18px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.brand-icon {
+    font-size: 30px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    font-size: 17px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.nav-register {
+    background-color: #4d983f;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 8px;
+    border: 1px solid #222222;
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 80px 8%;
+    min-height: 620px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.eyebrow {
+    color: #4d983f;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.hero-content h1 {
+    font-size: 64px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-content h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.hero-description {
+    color: #555555;
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+.primary-button {
+    display: inline-block;
+    background-color: #4d983f;
+    color: white;
+    padding: 15px 35px;
+    border: 2px solid #222222;
+    border-radius: 10px;
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.primary-button:hover {
+    background-color: #39752e;
+}
+
+.login-prompt {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.login-prompt a {
+    color: #397cc5;
+    text-decoration: underline;
+}
+
+
+/* =========================
+   DASHBOARD PREVIEW
+========================= */
+
+.dashboard-preview {
+    flex: 1;
+    max-width: 480px;
+    background-color: #f5fbea;
+    border: 2px solid #344b32;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 7px 7px 0px #c3e6a0;
+}
+
+.dashboard-preview > h2 {
+    font-size: 26px;
+    margin-bottom: 25px;
+}
+
+.progress-section {
+    margin-bottom: 25px;
+}
+
+.progress-section p {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.progress-bar {
+    background-color: #dce8d5;
+    height: 13px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.progress-fill {
+    width: 70%;
+    height: 100%;
+    background-color: #4d983f;
+}
+
+.progress-section span {
+    font-size: 13px;
+    color: #555555;
+}
+
+
+/* TASK PREVIEW */
+
+.preview-tasks {
+    border-top: 1px solid #c6d6bd;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+.preview-tasks h3,
+.timer-preview h3,
+.leaderboard-preview h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.task {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #d5dfcf;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+.task > span {
+    color: #4d983f;
+    font-size: 20px;
+}
+
+.task strong {
+    display: block;
+    font-size: 14px;
+}
+
+.task small {
+    color: #777777;
+    font-size: 12px;
+}
+
+
+/* TIMER PREVIEW */
+
+.timer-preview {
+    background-color: #eaf8d9;
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.timer-display {
+    font-size: 35px;
+    font-weight: bold;
+    color: #39752e;
+}
+
+.timer-preview span {
+    font-size: 13px;
+}
+
+
+/* LEADERBOARD PREVIEW */
+
+.leaderboard-preview {
+    border-top: 1px solid #c6d6bd;
+    padding-top: 20px;
+}
+
+.leaderboard-preview p {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+
+/* =========================
+   FEATURES SECTION
+========================= */
+
+.features {
+    background-color: #f5fbea;
+    padding: 75px 8%;
+    text-align: center;
+}
+
+.features > h2 {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.section-description {
+    color: #666666;
+    margin-bottom: 40px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.feature-card {
+    background-color: white;
+    border: 2px solid #344b32;
+    border-radius: 16px;
+    padding: 30px 20px;
+    box-shadow: 4px 4px 0px #c3e6a0;
+}
+
+.feature-icon {
+    font-size: 38px;
+}
+
+.feature-card h3 {
+    font-size: 21px;
+    margin: 15px 0;
+}
+
+.feature-card p {
+    color: #666666;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+
+/* =========================
+   MOTIVATIONAL SECTION
+========================= */
+
+.motivation {
+    text-align: center;
+    padding: 75px 20px;
+    background-color: #eaf8d9;
+}
+
+.motivation h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.motivation p {
+    margin-bottom: 25px;
+    color: #555555;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    background-color: #ffffff;
+    border-top: 2px solid #222222;
+    padding: 40px 8% 20px;
+    text-align: center;
+}
+
+.footer-brand h2 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.footer-brand p {
+    color: #666666;
+    margin-bottom: 25px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    border-top: 1px solid #dddddd;
+    padding-top: 20px;
+    font-size: 13px;
+    color: #777777;
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 1000px) {
+
+    .hero {
+        padding: 60px 5%;
+        gap: 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 50px 6%;
+    }
+
+    .hero-content h1 {
+        font-size: 44px;
+    }
+
+    .dashboard-preview {
+        width: 100%;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+    }
+}

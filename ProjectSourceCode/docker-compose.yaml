@@ -1,0 +1,29 @@
+
+services:
+  db:
+    image: postgres:14
+    container_name: study-sprout-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: study_sprout
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./src/init_data:/docker-entrypoint-initdb.d
+
+  web:
+    image: node:lts
+    container_name: study-sprout-web
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    command: sh -c "npm install && npm start"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
