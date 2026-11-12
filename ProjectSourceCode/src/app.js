@@ -71,7 +71,6 @@ app.post('/login', async (req, res) => {
             return res.status(401).json({ error: 'Invalid username or password' });
         }
 
-        // Create a session or JWT here
         return res.json({ id: user.id, username: user.username });
     } catch (err) {
         return res.status(500).json({ error: 'Server error' });
