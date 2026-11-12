@@ -1,5 +1,8 @@
 # User Acceptance Test Plan
 
+## Scope
+We will test registration, login, and adding assignments to make sure they work and show errors when something is wrong.
+
 ## Test cases
 
 | Test ID | Feature / requirement | Acceptance criterion | Preconditions | Test data | User steps | Expected result | Tester ID | Actual result | Status | Issue / follow-up |
