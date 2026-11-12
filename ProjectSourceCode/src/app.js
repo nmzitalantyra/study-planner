@@ -51,6 +51,33 @@ app.post('/register', async (req, res) => {
     }
 });
 
+app.post('/login', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+
+        if (typeof username !== 'string' || typeof password !== 'string') {
+            return res.status(400).json({ error: 'Invalid request' });
+        }
+
+        const user = await db.oneOrNone(
+            'SELECT id, username, password_hash FROM users WHERE username = $1',
+            [username]
+        );
+
+        const hash = user.password_hash;
+        const valid = await argon2.verify(hash, password);
+
+        if (!user || !valid) {
+            return res.status(401).json({ error: 'Invalid username or password' });
+        }
+
+        // Create a session or JWT here
+        return res.json({ id: user.id, username: user.username });
+    } catch (err) {
+        return res.status(500).json({ error: 'Server error' });
+    }
+});
+
 app.get('/leaderboard', (req, res) => {
     res.render('leaderboard');
 });
