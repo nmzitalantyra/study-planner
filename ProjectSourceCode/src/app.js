@@ -64,10 +64,13 @@ app.post('/login', async (req, res) => {
             [username]
         );
 
-        const hash = user.password_hash;
-        const valid = await argon2.verify(hash, password);
+        if (!user) {
+            return res.status(401).json({ error: 'Invalid username or password' });
+        }
 
-        if (!user || !valid) {
+        const valid = await argon2.verify(user.password_hash, password);
+
+        if (!valid) {
             return res.status(401).json({ error: 'Invalid username or password' });
         }
 
@@ -77,6 +80,13 @@ app.post('/login', async (req, res) => {
     }
 });
 
+app.get('/login', (req, res) => {
+    res.render('login');
+});
+
+app.get('/register', (req, res) => {
+    res.render('register');
+});
 app.get('/leaderboard', (req, res) => {
     res.render('leaderboard');
 });
