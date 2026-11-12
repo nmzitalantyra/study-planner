@@ -6,6 +6,9 @@ We will test registration, login, and adding assignments to make sure they work 
 ## Test Environment
 We will test Study Sprout on localhost using Chrome on a laptop. We will run it with Docker Compose and record the GitHub commit when we test.
 
+## Tester Plan
+We will ask a student outside our group to test Study Sprout. Ryan will organize the testing. Tester ID: T1.
+
 ## Test cases
 
 | Test ID | Feature / requirement | Acceptance criterion | Preconditions | Test data | User steps | Expected result | Tester ID | Actual result | Status | Issue / follow-up |
