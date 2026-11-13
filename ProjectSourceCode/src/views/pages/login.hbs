@@ -2,10 +2,11 @@
 
 <main class="auth-page">
     <div class="auth-card">
-        <img src="study-planner/ProjectSourceCode/src/resources/img/sprout-logo.png" alt="Study Sprout logo" class="auth-logo">
+        <img src="/resources/img/sprout-logo.png" alt="Study Sprout logo" class="auth-logo">
         <h2 class="auth-brand">Study Sprout</h2>
         <hr>
         <h1>Log In</h1>
+        {{#if error}}<p class="auth-error">{{error}}</p>{{/if}}
 
         <form action="/login" method="post">
             <div class="input-wrap">

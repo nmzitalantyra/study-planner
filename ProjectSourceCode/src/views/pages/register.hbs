@@ -6,11 +6,17 @@
         <h2 class="auth-brand">Study Sprout</h2>
         <hr>
         <h1>Create an Account</h1>
+        {{#if error}}<p class="auth-error">{{error}}</p>{{/if}}
 
         <form action="/register" method="post">
             <div class="input-wrap">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
                 <input type="text" name="username" placeholder="Username" aria-label="Username" maxlength="32" required>
+            </div>
+
+            <div class="input-wrap">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                <input type="email" name="email" placeholder="Email" aria-label="Email" required>
             </div>
 
             <div class="input-wrap">
