@@ -3,7 +3,7 @@
 <main>
 
     <!-- HERO SECTION -->
-    <section class="hero">
+    <section class="hero hero-home">
 
         <div class="hero-content">
 
@@ -22,7 +22,7 @@
 
 
         <!-- DASHBOARD PREVIEW -->
-        <div class="dashboard-preview">
+        <div class="dashboard-preview dashboard-wide">
 
             <h2>My Study Dashboard 🌱</h2>
 
@@ -41,29 +41,17 @@
 
                 <h3>Upcoming Tasks</h3>
 
-                <div class="task">
-                    <span>○</span>
-                    <div>
-                        <strong>Biology Assignment</strong>
-                        <small>Due Today</small>
+                {{#each assignments}}
+                    <div class="task">
+                        <span>○</span>
+                        <div>
+                            <strong>{{title}}</strong>
+                            <small>{{course}} · Due {{due_label}}</small>
+                        </div>
                     </div>
-                </div>
-
-                <div class="task">
-                    <span>○</span>
-                    <div>
-                        <strong>Chemistry Quiz</strong>
-                        <small>Due Tomorrow</small>
-                    </div>
-                </div>
-
-                <div class="task">
-                    <span>✓</span>
-                    <div>
-                        <strong>CS Project</strong>
-                        <small>Completed</small>
-                    </div>
-                </div>
+                {{else}}
+                    <p class="empty-tasks">No assignments yet. Click Task Manager below to add one.</p>
+                {{/each}}
 
             </div>
 
@@ -99,14 +87,14 @@
 
         <div class="feature-grid">
 
-            <div class="feature-card">
+            <a href="#" class="feature-card" id="open-task-modal">
                 <span class="feature-icon">📝</span>
                 <h3>Task Manager</h3>
                 <p>
                     Create tasks, organize assignments,
                     and keep track of deadlines.
                 </p>
-            </div>
+            </a>
 
             <div class="feature-card">
                 <span class="feature-icon">📊</span>
@@ -153,5 +141,7 @@
     </section>
 
 </main>
+
+{{> tasks}}
 
 {{> footer}}

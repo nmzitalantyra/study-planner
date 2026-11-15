@@ -1,0 +1,46 @@
+<dialog id="task-modal" class="task-modal">
+    <div class="auth-card modal-card">
+        <button type="button" class="modal-close" aria-label="Close">×</button>
+        <h1>Add Assignment</h1>
+
+        <form action="/add-assignment" method="post">
+            <label class="modal-label" for="task-title">Title</label>
+            <div class="input-wrap">
+                <input type="text" id="task-title" name="title" placeholder="e.g. Chemistry lab report" required autofocus>
+            </div>
+
+            <label class="modal-label" for="task-course">Course</label>
+            <div class="input-wrap">
+                <input type="text" id="task-course" name="course" list="course-options" placeholder="Type or choose a course" maxlength="50" autocomplete="off" required>
+                <datalist id="course-options">
+                    {{#each courses}}
+                        <option value="{{this}}"></option>
+                    {{/each}}
+                </datalist>
+            </div>
+
+            <label class="modal-label" for="task-due">Due date</label>
+            <div class="input-wrap">
+                <input type="date" id="task-due" name="due_date" required>
+            </div>
+
+            <button type="submit">Add Assignment</button>
+        </form>
+    </div>
+</dialog>
+
+<script>
+    const taskModal = document.getElementById('task-modal');
+
+    document.getElementById('open-task-modal').addEventListener('click', (e) => {
+        e.preventDefault();
+        taskModal.showModal();
+    });
+
+    taskModal.querySelector('.modal-close').addEventListener('click', () => taskModal.close());
+
+    // Clicking the dimmed background closes it too
+    taskModal.addEventListener('click', (e) => {
+        if (e.target === taskModal) taskModal.close();
+    });
+</script>

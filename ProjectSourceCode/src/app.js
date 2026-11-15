@@ -46,13 +46,41 @@ app.get('/', (req, res) => {
     res.render('landing');
 });
 
-app.get('/home', (req, res) => {
+app.get('/home', async (req, res) => {
     if (!req.session.user) {
         return res.redirect('/login');
     }
-    res.render('home', { username: req.session.user.username });
+
+    try {
+        const userId = req.session.user.id;
+
+        const assignments = await db.any(
+            `SELECT id, title, course, to_char(due_date, 'Mon FMDD') AS due_label
+             FROM assignments
+             WHERE user_id = $1 AND completed = FALSE
+             ORDER BY due_date
+             LIMIT 5`,
+            [userId]
+        );
+
+        const courses = await db.map(
+            'SELECT DISTINCT course FROM assignments WHERE user_id = $1 ORDER BY course',
+            [userId],
+            (row) => row.course
+        );
+
+        res.render('home', {
+            username: req.session.user.username,
+            assignments,
+            courses
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server error');
+    }
 });
 
+// Regitster and login routes
 app.post('/register', async (req, res) => {
     const fail = (status, message) =>
         isForm(req)
@@ -134,6 +162,33 @@ app.get('/login', (req, res) => {
 app.get('/register', (req, res) => {
     res.render('register');
 });
+
+// Add assignment route
+app.post('/add-assignment', async (req, res) => {
+    if (!req.session.user) {
+        return res.redirect('/login');
+    }
+
+    const title = (req.body.title || '').trim();
+    const course = (req.body.course || '').trim();
+    const dueDate = req.body.due_date;
+
+    if (!title || title.length > 100 || !course || course.length > 50 || !dueDate) {
+        return res.redirect('/home');
+    }
+
+    try {
+        await db.none(
+            'INSERT INTO assignments (user_id, title, course, due_date) VALUES ($1, $2, $3, $4)',
+            [req.session.user.id, title, course, dueDate]
+        );
+    } catch (err) {
+        console.error(err);
+    }
+
+    res.redirect('/home');
+});
+
 
 app.get('/leaderboard', (req, res) => {
     res.render('leaderboard');
