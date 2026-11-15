@@ -1,6 +1,10 @@
+/* =========================================================
+   STUDY SPROUT - STYLESHEET
+========================================================= */
+
 
 /* =========================
-   STUDY SPROUT - GLOBAL
+   1. GLOBAL / BASE
 ========================= */
 
 * {
@@ -24,9 +28,45 @@ a {
     color: inherit;
 }
 
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1rem;
+    color: white;
+    background: hsl(129, 37%, 35%);
+    border: none;
+    border-radius: 8px;
+}
+
+button:hover {
+    background: hsl(129, 37%, 25%);
+    cursor: pointer;
+}
+
 
 /* =========================
-   NAVIGATION BAR
+   2. SHARED COMPONENTS
+========================= */
+
+.primary-button {
+    display: inline-block;
+    background-color: #4d983f;
+    color: white;
+    padding: 15px 35px;
+    border: 2px solid #222222;
+    border-radius: 10px;
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.primary-button:hover {
+    background-color: #39752e;
+}
+
+
+/* =========================
+   3. NAVIGATION BAR
 ========================= */
 
 .navbar {
@@ -69,74 +109,12 @@ a {
     border: 1px solid #222222;
 }
 
-/* =========================
-    Leaderboard
-========================= */
-.dashboard-page{
-    background: hsl(90, 12%, 93%);
-    padding: 24px;
-    min-height: 100vh;
-}
-
-.dashboard{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    border: 3px solid black;
-    border-radius: 24px;
-    background: hsl(90, 12%, 80%);
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 24px;
-}
-
-.card{
-    padding: 16px;
-    border: 1.5px solid black;
-    border-radius: 16px;
-}
-
-.dashboard ul, .dashboard ol{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-li{
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 4px;
-}
-
-progress{
-    width: 75%;
-    accent-color: hsl(206, 100%, 60%);
-}
-
-button{
-    width: 100%;
-    padding: 10px;
-    font-size: 1.1rem;
-    color: white;
-    background: hsl(129, 37%, 35%);
-    border: none;
-    border-radius: 8px;
-}
-
-button:hover{
-    background: hsl(129, 37%, 25%);
-    cursor: pointer;
-}
-
-.you{
-    background: hsl(129, 37%, 35%);
-    font-weight: bold;
-}
-
 
 /* =========================
-   HERO SECTION
+   4. LANDING PAGE
 ========================= */
+
+/* Hero section */
 
 .hero {
     display: flex;
@@ -177,22 +155,6 @@ button:hover{
     margin-bottom: 30px;
 }
 
-.primary-button {
-    display: inline-block;
-    background-color: #4d983f;
-    color: white;
-    padding: 15px 35px;
-    border: 2px solid #222222;
-    border-radius: 10px;
-    font-family: 'Lora', serif;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.primary-button:hover {
-    background-color: #39752e;
-}
-
 .login-prompt {
     margin-top: 20px;
     font-size: 14px;
@@ -203,136 +165,7 @@ button:hover{
     text-decoration: underline;
 }
 
-
-/* =========================
-   DASHBOARD PREVIEW
-========================= */
-
-.dashboard-preview {
-    flex: 1;
-    max-width: 480px;
-    background-color: #f5fbea;
-    border: 2px solid #344b32;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 7px 7px 0px #c3e6a0;
-}
-
-.dashboard-preview > h2 {
-    font-size: 26px;
-    margin-bottom: 25px;
-}
-
-.progress-section {
-    margin-bottom: 25px;
-}
-
-.progress-section p {
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.progress-bar {
-    background-color: #dce8d5;
-    height: 13px;
-    border-radius: 20px;
-    overflow: hidden;
-    margin-bottom: 8px;
-}
-
-.progress-fill {
-    width: 70%;
-    height: 100%;
-    background-color: #4d983f;
-}
-
-.progress-section span {
-    font-size: 13px;
-    color: #555555;
-}
-
-
-/* TASK PREVIEW */
-
-.preview-tasks {
-    border-top: 1px solid #c6d6bd;
-    padding-top: 20px;
-    margin-bottom: 20px;
-}
-
-.preview-tasks h3,
-.timer-preview h3,
-.leaderboard-preview h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-.task {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    background-color: white;
-    border: 1px solid #d5dfcf;
-    border-radius: 8px;
-    padding: 12px;
-    margin-bottom: 10px;
-}
-
-.task > span {
-    color: #4d983f;
-    font-size: 20px;
-}
-
-.task strong {
-    display: block;
-    font-size: 14px;
-}
-
-.task small {
-    color: #777777;
-    font-size: 12px;
-}
-
-
-/* TIMER PREVIEW */
-
-.timer-preview {
-    background-color: #eaf8d9;
-    border-radius: 12px;
-    padding: 18px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.timer-display {
-    font-size: 35px;
-    font-weight: bold;
-    color: #39752e;
-}
-
-.timer-preview span {
-    font-size: 13px;
-}
-
-
-/* LEADERBOARD PREVIEW */
-
-.leaderboard-preview {
-    border-top: 1px solid #c6d6bd;
-    padding-top: 20px;
-}
-
-.leaderboard-preview p {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    font-size: 14px;
-}
-
-
-/* =========================
-   FEATURES SECTION
-========================= */
+/* Features section */
 
 .features {
     background-color: #f5fbea;
@@ -379,10 +212,20 @@ button:hover{
     font-size: 14px;
 }
 
+/* Clickable feature card (Task Manager on the home page) */
 
-/* =========================
-   MOTIVATIONAL SECTION
-========================= */
+a.feature-card {
+    display: block;
+    color: inherit;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+a.feature-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #c3e6a0;
+}
+
+/* Motivational section */
 
 .motivation {
     text-align: center;
@@ -402,7 +245,133 @@ button:hover{
 
 
 /* =========================
-   FOOTER
+   5. DASHBOARD CARD
+   (used on the landing and home pages)
+========================= */
+
+.dashboard-preview {
+    flex: 1;
+    max-width: 480px;
+    background-color: #f5fbea;
+    border: 2px solid #344b32;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 7px 7px 0px #c3e6a0;
+}
+
+.dashboard-preview > h2 {
+    font-size: 26px;
+    margin-bottom: 25px;
+}
+
+/* Progress bar */
+
+.progress-section {
+    margin-bottom: 25px;
+}
+
+.progress-section p {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.progress-bar {
+    background-color: #dce8d5;
+    height: 13px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.progress-fill {
+    width: 70%;
+    height: 100%;
+    background-color: #4d983f;
+}
+
+.progress-section span {
+    font-size: 13px;
+    color: #555555;
+}
+
+/* Upcoming tasks list */
+
+.preview-tasks {
+    border-top: 1px solid #c6d6bd;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+.preview-tasks h3,
+.timer-preview h3,
+.leaderboard-preview h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.task {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #d5dfcf;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+.task > span {
+    color: #4d983f;
+    font-size: 20px;
+}
+
+.task strong {
+    display: block;
+    font-size: 14px;
+}
+
+.task small {
+    color: #777777;
+    font-size: 12px;
+}
+
+/* Study timer */
+
+.timer-preview {
+    background-color: #eaf8d9;
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.timer-display {
+    font-size: 35px;
+    font-weight: bold;
+    color: #39752e;
+}
+
+.timer-preview span {
+    font-size: 13px;
+}
+
+/* Study buddies */
+
+.leaderboard-preview {
+    border-top: 1px solid #c6d6bd;
+    padding-top: 20px;
+}
+
+.leaderboard-preview p {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+
+/* =========================
+   6. FOOTER
 ========================= */
 
 .footer {
@@ -442,62 +411,8 @@ button:hover{
 
 
 /* =========================
-   RESPONSIVE DESIGN
-========================= */
-
-@media (max-width: 1000px) {
-
-    .hero {
-        padding: 60px 5%;
-        gap: 30px;
-    }
-
-    .hero-content h1 {
-        font-size: 48px;
-    }
-
-    .feature-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 700px) {
-
-    .navbar {
-        flex-direction: column;
-        gap: 18px;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 18px;
-    }
-
-    .hero {
-        flex-direction: column;
-        padding: 50px 6%;
-    }
-
-    .hero-content h1 {
-        font-size: 44px;
-    }
-
-    .dashboard-preview {
-        width: 100%;
-    }
-
-    .feature-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-links {
-        flex-wrap: wrap;
-    }
-}
-
-/* =========================
-   LOGIN PAGE
+   7. LOGIN / REGISTER
+   (the card and form styles are reused by the pop-ups)
 ========================= */
 
 .auth-page {
@@ -540,6 +455,22 @@ button:hover{
     margin-bottom: 25px;
 }
 
+.auth-error {
+    color: #b3261e;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Form fields */
+
+.modal-label {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
 .input-wrap {
     display: flex;
     align-items: center;
@@ -559,6 +490,17 @@ button:hover{
     font-family: 'Lora', serif;
     font-size: 16px;
 }
+
+.input-wrap select {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: 'Lora', serif;
+    font-size: 16px;
+}
+
+/* Submit button and links */
 
 .auth-card button {
     display: block;
@@ -594,19 +536,16 @@ button:hover{
     font-size: 14px;
 }
 
-.auth-error {
-    color: #b3261e;
-    font-size: 14px;
-    margin-bottom: 15px;
-}
 
 /* =========================
-   HOME PAGE (LOGGED IN)
+   8. HOME PAGE (LOGGED IN)
 ========================= */
 
 .hero-home .hero-content h1 {
     font-size: 44px;
 }
+
+/* Wide 2x2 dashboard layout */
 
 .dashboard-wide {
     flex: 2;
@@ -644,35 +583,84 @@ button:hover{
     grid-row: 3;
 }
 
-@media (max-width: 1000px) {
-    .dashboard-wide {
-        grid-template-columns: 1fr;
-    }
+/* Task list: complete and edit buttons */
 
-    .dashboard-wide .progress-section,
-    .dashboard-wide .timer-preview,
-    .dashboard-wide .preview-tasks,
-    .dashboard-wide .leaderboard-preview {
-        grid-column: 1;
-        grid-row: auto;
-    }
+.empty-tasks {
+    color: #777777;
+    font-size: 14px;
+}
+
+.task-check-form {
+    display: flex;
+}
+
+.dashboard-preview .task-check {
+    width: auto;
+    padding: 0;
+    background: none;
+    color: #4d983f;
+    font-size: 22px;
+    line-height: 1;
+    border-radius: 0;
+}
+
+.dashboard-preview .task-check:hover {
+    background: none;
+    color: #39752e;
+}
+
+.task-done strong {
+    text-decoration: line-through;
+    color: #888888;
+}
+
+.dashboard-preview .task-edit {
+    width: auto;
+    margin-left: auto;
+    padding: 4px 6px;
+    background: none;
+    color: #888888;
+    font-size: 18px;
+    line-height: 1;
+    border-radius: 6px;
+}
+
+.dashboard-preview .task-edit:hover {
+    background: #eaf8d9;
+    color: #39752e;
 }
 
 
 /* =========================
-   ADD ASSIGNMENT POP-UP
+   9. POP-UPS (ADD / EDIT ASSIGNMENT)
 ========================= */
 
 .task-modal {
+    margin: auto;
     border: none;
     background: transparent;
     padding: 0;
     width: 90%;
-    max-width: 440px;
+    max-width: 460px;
 }
 
 .task-modal::backdrop {
     background: rgba(0, 0, 0, 0.45);
+}
+
+.task-modal[open] {
+    animation: modal-in 0.18s ease-out;
+}
+
+@keyframes modal-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .modal-card {
@@ -698,57 +686,122 @@ button:hover{
     color: #b3261e;
 }
 
-a.feature-card {
-    display: block;
-    color: inherit;
-    transition: transform 0.15s, box-shadow 0.15s;
+
+/* =========================
+   10. LEADERBOARD PAGE
+========================= */
+
+.dashboard-page {
+    background: hsl(90, 12%, 93%);
+    padding: 24px;
+    min-height: 100vh;
 }
 
-a.feature-card:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0px #c3e6a0;
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    border: 3px solid black;
+    border-radius: 24px;
+    background: hsl(90, 12%, 80%);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 24px;
 }
 
-.input-wrap select {
-    flex: 1;
-    border: none;
-    outline: none;
-    background: transparent;
-    font-family: 'Lora', serif;
-    font-size: 16px;
+.card {
+    padding: 16px;
+    border: 1.5px solid black;
+    border-radius: 16px;
 }
 
-.task-modal {
-    margin: auto;
-}
-.task-modal {
-    max-width: 460px;
+.dashboard ul,
+.dashboard ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.modal-label {
-    display: block;
-    text-align: left;
-    font-size: 14px;
+li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 4px;
+}
+
+progress {
+    width: 75%;
+    accent-color: hsl(206, 100%, 60%);
+}
+
+.you {
+    background: hsl(129, 37%, 35%);
     font-weight: bold;
-    margin-bottom: 6px;
 }
 
-.task-modal[open] {
-    animation: modal-in 0.18s ease-out;
-}
 
-@keyframes modal-in {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
+/* =========================
+   11. RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 1000px) {
+
+    .hero {
+        padding: 60px 5%;
+        gap: 30px;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-wide {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-wide .progress-section,
+    .dashboard-wide .timer-preview,
+    .dashboard-wide .preview-tasks,
+    .dashboard-wide .leaderboard-preview {
+        grid-column: 1;
+        grid-row: auto;
     }
 }
 
-.empty-tasks {
-    color: #777777;
-    font-size: 14px;
+@media (max-width: 700px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 50px 6%;
+    }
+
+    .hero-content h1 {
+        font-size: 44px;
+    }
+
+    .dashboard-preview {
+        width: 100%;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+    }
 }
