@@ -1,0 +1,46 @@
+<dialog id="edit-modal" class="task-modal">
+    <div class="auth-card modal-card">
+        <button type="button" class="modal-close" aria-label="Close">×</button>
+        <h1>Edit Assignment</h1>
+
+        <form id="edit-form" method="post">
+            <label class="modal-label" for="edit-title">Title</label>
+            <div class="input-wrap">
+                <input type="text" id="edit-title" name="title" required>
+            </div>
+
+            <label class="modal-label" for="edit-course">Course</label>
+            <div class="input-wrap">
+                <input type="text" id="edit-course" name="course" list="course-options" maxlength="50" autocomplete="off" required>
+            </div>
+
+            <label class="modal-label" for="edit-due">Due date</label>
+            <div class="input-wrap">
+                <input type="date" id="edit-due" name="due_date" required>
+            </div>
+
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</dialog>
+
+<script>
+    const editModal = document.getElementById('edit-modal');
+    const editForm = document.getElementById('edit-form');
+
+    document.querySelectorAll('.task-edit').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            editForm.action = '/assignments/' + btn.dataset.id + '/edit';
+            document.getElementById('edit-title').value = btn.dataset.title;
+            document.getElementById('edit-course').value = btn.dataset.course;
+            document.getElementById('edit-due').value = btn.dataset.due;
+            editModal.showModal();
+        });
+    });
+
+    editModal.querySelector('.modal-close').addEventListener('click', () => editModal.close());
+
+    editModal.addEventListener('click', (e) => {
+        if (e.target === editModal) editModal.close();
+    });
+</script>

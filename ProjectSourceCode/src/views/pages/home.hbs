@@ -27,13 +27,13 @@
             <h2>My Study Dashboard 🌱</h2>
 
             <div class="progress-section">
-                <p>Today's Progress</p>
+                <p>This Week's Progress</p>
 
                 <div class="progress-bar">
-                    <div class="progress-fill"></div>
+                    <div class="progress-fill" style="width: {{percent}}%"></div>
                 </div>
 
-                <span>70% Completed</span>
+                <span>{{done}} of {{total}} completed · {{percent}}%</span>
             </div>
 
 
@@ -42,12 +42,16 @@
                 <h3>Upcoming Tasks</h3>
 
                 {{#each assignments}}
-                    <div class="task">
-                        <span>○</span>
+                    <div class="task {{#if completed}}task-done{{/if}}">
+                        <form action="/assignments/{{id}}/toggle" method="post" class="task-check-form">
+                            <button type="submit" class="task-check" aria-label="Toggle complete">{{#if completed}}✓{{else}}○{{/if}}</button>
+                        </form>
                         <div>
                             <strong>{{title}}</strong>
                             <small>{{course}} · Due {{due_label}}</small>
                         </div>
+                        <button type="button" class="task-edit" aria-label="Edit"
+                            data-id="{{id}}" data-title="{{title}}" data-course="{{course}}" data-due="{{due_iso}}">✎</button>
                     </div>
                 {{else}}
                     <p class="empty-tasks">No assignments yet. Click Task Manager below to add one.</p>
@@ -143,5 +147,6 @@
 </main>
 
 {{> tasks}}
+{{> edit_tasks}}
 
 {{> footer}}

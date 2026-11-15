@@ -55,11 +55,24 @@ app.get('/home', async (req, res) => {
         const userId = req.session.user.id;
 
         const assignments = await db.any(
-            `SELECT id, title, course, to_char(due_date, 'Mon FMDD') AS due_label
+            `SELECT id, title, course, completed,
+                to_char(due_date, 'Mon FMDD') AS due_label,
+                to_char(due_date, 'YYYY-MM-DD') AS due_iso
              FROM assignments
-             WHERE user_id = $1 AND completed = FALSE
-             ORDER BY due_date
-             LIMIT 5`,
+             WHERE user_id = $1
+               AND (completed = FALSE OR due_date >= date_trunc('week', CURRENT_DATE))
+             ORDER BY completed, due_date
+             LIMIT 8`,
+            [userId]
+        );
+
+        const week = await db.one(
+            `SELECT COUNT(*)::int AS total,
+                    COUNT(*) FILTER (WHERE completed)::int AS done
+             FROM assignments
+             WHERE user_id = $1
+               AND due_date >= date_trunc('week', CURRENT_DATE)
+               AND due_date < date_trunc('week', CURRENT_DATE) + INTERVAL '7 days'`,
             [userId]
         );
 
@@ -72,7 +85,10 @@ app.get('/home', async (req, res) => {
         res.render('home', {
             username: req.session.user.username,
             assignments,
-            courses
+            courses,
+            total: week.total,
+            done: week.done,
+            percent: week.total ? Math.round((week.done / week.total) * 100) : 0
         });
     } catch (err) {
         console.error(err);
@@ -189,6 +205,45 @@ app.post('/add-assignment', async (req, res) => {
     res.redirect('/home');
 });
 
+app.post('/assignments/:id/toggle', async (req, res) => {
+    if (!req.session.user) {
+        return res.redirect('/login');
+    }
+    try {
+        await db.none(
+            'UPDATE assignments SET completed = NOT completed WHERE id = $1 AND user_id = $2',
+            [req.params.id, req.session.user.id]
+        );
+    } catch (err) {
+        console.error(err);
+    }
+    res.redirect('/home');
+});
+
+app.post('/assignments/:id/edit', async (req, res) => {
+    if (!req.session.user) {
+        return res.redirect('/login');
+    }
+
+    const title = (req.body.title || '').trim();
+    const course = (req.body.course || '').trim();
+    const dueDate = req.body.due_date;
+
+    if (!title || title.length > 100 || !course || course.length > 50 || !dueDate) {
+        return res.redirect('/home');
+    }
+
+    try {
+        await db.none(
+            'UPDATE assignments SET title = $1, course = $2, due_date = $3 WHERE id = $4 AND user_id = $5',
+            [title, course, dueDate, req.params.id, req.session.user.id]
+        );
+    } catch (err) {
+        console.error(err);
+    }
+
+    res.redirect('/home');
+});
 
 app.get('/leaderboard', (req, res) => {
     res.render('leaderboard');
