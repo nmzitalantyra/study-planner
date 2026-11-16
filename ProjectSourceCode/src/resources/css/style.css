@@ -7,6 +7,36 @@
    1. GLOBAL / BASE
 ========================= */
 
+:root {
+    --bg: #ffffff;
+    --text: #222222;
+    --text-muted: #555555;
+    --surface: #ffffff;
+    --card-bg: #f5fbea;
+    --section-alt: #eaf8d9;
+    --accent: #4d983f;
+    --accent-dark: #39752e;
+    --border: #344b32;
+    --shadow: #c3e6a0;
+    --line: #c6d6bd;
+    --nav-bg: #a8ff19;
+}
+
+[data-theme="dark"] {
+    --bg: #141a13;
+    --text: #e8efe4;
+    --text-muted: #aab5a5;
+    --surface: #1f271d;
+    --card-bg: #1b231a;
+    --section-alt: #223020;
+    --accent: #5fa84e;
+    --accent-dark: #7cc46b;
+    --border: #7a9a70;
+    --shadow: #2c3b27;
+    --line: #34432f;
+    --nav-bg: #2f5a1e;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,8 +44,8 @@
 }
 
 body {
-    background-color: #ffffff;
-    color: #222222;
+    background-color: var(--bg);
+    color: var(--text);
     font-family: 'Lora', serif;
 }
 
@@ -41,6 +71,19 @@ button {
 button:hover {
     background: hsl(129, 37%, 25%);
     cursor: pointer;
+}
+
+.theme-toggle{
+    width: auto;
+    padding: 6px 10px;
+    background: transparent;
+    border: 1.5px solid var(--text);
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.theme-toggle:hover{
+    background-color: rgba(128, 128, 128, 0.25);
 }
 
 
@@ -70,7 +113,7 @@ button:hover {
 ========================= */
 
 .navbar {
-    background-color: #a8ff19;
+    background-color: var(--nav-bg);
     border: 2px solid #222222;
     padding: 18px 5%;
     display: flex;
@@ -103,7 +146,7 @@ button:hover {
 
 .nav-register {
     background-color: #4d983f;
-    color: white;
+    color: var(--text);
     padding: 10px 22px;
     border-radius: 8px;
     border: 1px solid #222222;
@@ -168,7 +211,7 @@ button:hover {
 /* Features section */
 
 .features {
-    background-color: #f5fbea;
+    background-color: var(--section-alt);
     padding: 75px 8%;
     text-align: center;
 }
@@ -252,16 +295,21 @@ a.feature-card:hover {
 .dashboard-preview {
     flex: 1;
     max-width: 480px;
-    background-color: #f5fbea;
-    border: 2px solid #344b32;
+    background-color: var(--card-bg);
+    border: 2px solid var(--border);
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 7px 7px 0px #c3e6a0;
+    box-shadow: 7px 7px 0px var(--shadow);
 }
 
 .dashboard-preview > h2 {
     font-size: 26px;
     margin-bottom: 25px;
+}
+
+.dashboard-preview > h2:hover{
+    text-decoration: underline;
+    color: #39752e;
 }
 
 /* Progress bar */
@@ -313,7 +361,7 @@ a.feature-card:hover {
     display: flex;
     gap: 12px;
     align-items: center;
-    background-color: white;
+    background-color: var(--surface);
     border: 1px solid #d5dfcf;
     border-radius: 8px;
     padding: 12px;
@@ -375,7 +423,7 @@ a.feature-card:hover {
 ========================= */
 
 .footer {
-    background-color: #ffffff;
+    background-color: var(--bg);
     border-top: 2px solid #222222;
     padding: 40px 8% 20px;
     text-align: center;

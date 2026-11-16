@@ -12,11 +12,30 @@
     <link rel="stylesheet" href="/resources/css/style.css">
 
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    
 </head>
 
 <body>
 
     {{{body}}}
 
+<script>
+    var toggle = document.getElementById('theme-toggle');
+
+    function updateIcon() {
+        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        toggle.textContent = isDark ? '☀️' : '🌙';
+    }
+
+    toggle.addEventListener('click', function () {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateIcon();
+    });
+
+    updateIcon();
+</script>
 </body>
 </html>
