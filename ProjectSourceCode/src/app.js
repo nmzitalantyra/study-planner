@@ -245,6 +245,21 @@ app.post('/assignments/:id/edit', async (req, res) => {
     res.redirect('/home');
 });
 
+app.post('/assignments/:id/delete', async (req, res) => {
+    if (!req.session.user) {
+        return res.redirect('/login');
+    }
+    try {
+        await db.none(
+            'DELETE FROM assignments WHERE id = $1 AND user_id = $2',
+            [req.params.id, req.session.user.id]
+        );
+    } catch (err) {
+        console.error(err);
+    }
+    res.redirect('/home');
+});
+
 app.get('/leaderboard', (req, res) => {
     res.render('leaderboard');
 });

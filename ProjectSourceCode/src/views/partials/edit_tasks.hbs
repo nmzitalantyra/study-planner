@@ -21,16 +21,22 @@
 
             <button type="submit">Save Changes</button>
         </form>
+
+        <form id="delete-form" method="post">
+            <button type="submit" class="modal-delete">Delete</button>
+        </form>
     </div>
 </dialog>
 
 <script>
     const editModal = document.getElementById('edit-modal');
     const editForm = document.getElementById('edit-form');
+    const deleteForm = document.getElementById('delete-form');
 
     document.querySelectorAll('.task-edit').forEach((btn) => {
         btn.addEventListener('click', () => {
             editForm.action = '/assignments/' + btn.dataset.id + '/edit';
+            deleteForm.action = '/assignments/' + btn.dataset.id + '/delete';
             document.getElementById('edit-title').value = btn.dataset.title;
             document.getElementById('edit-course').value = btn.dataset.course;
             document.getElementById('edit-due').value = btn.dataset.due;

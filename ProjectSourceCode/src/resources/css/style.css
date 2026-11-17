@@ -37,6 +37,10 @@
     --nav-bg: #2f5a1e;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -678,9 +682,19 @@ a.feature-card:hover {
     color: #39752e;
 }
 
+.quick-timer {
+    cursor: pointer;
+    transition: transform 0.15s, background 0.15s;
+}
+
+.quick-timer:hover {
+    background: #dff2c2;
+    transform: translateY(-2px);
+}
+
 
 /* =========================
-   9. POP-UPS (ADD / EDIT ASSIGNMENT)
+   9. POP-UPS (ADD / EDIT / DELETE ASSIGNMENT)
 ========================= */
 
 .task-modal {
@@ -735,8 +749,84 @@ a.feature-card:hover {
 }
 
 
+.auth-card .modal-delete {
+    background: none;
+    color: #b3261e;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 12px;
+    padding: 6px;
+}
+
+.auth-card .modal-delete:hover {
+    background: none;
+    color: #8c1d18;
+    text-decoration: underline;
+}
+
 /* =========================
-   10. LEADERBOARD PAGE
+   10. Timer
+========================= */
+
+.timer-presets {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.auth-card .timer-preset {
+    width: auto;
+    margin: 0;
+    padding: 6px 16px;
+    font-size: 14px;
+    background: #eaf8d9;
+    color: #39752e;
+    border: 1.5px solid #c3e6a0;
+}
+
+.auth-card .timer-preset:hover {
+    background: #c3e6a0;
+}
+
+.timer-big {
+    font-family: 'DM Serif Display', serif;
+    font-size: 72px;
+    line-height: 1;
+    color: #39752e;
+    margin: 10px 0 8px;
+}
+
+.timer-status {
+    color: #555555;
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.auth-card .timer-controls button {
+    width: auto;
+    min-width: 110px;
+    margin: 0;
+}
+
+.auth-card .timer-secondary {
+    background: none;
+    color: #555555;
+    border: 1.5px solid #aaaaaa;
+}
+
+.auth-card .timer-secondary:hover {
+    background: #f0f0f0;
+}
+
+/* =========================
+   11. LEADERBOARD PAGE
 ========================= */
 
 .dashboard-page {
