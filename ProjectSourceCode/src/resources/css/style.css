@@ -8,6 +8,8 @@
 ========================= */
 
 :root {
+    color-scheme: light;
+
     --bg: #ffffff;
     --text: #222222;
     --text-muted: #555555;
@@ -20,9 +22,19 @@
     --shadow: #c3e6a0;
     --line: #c6d6bd;
     --nav-bg: #a8ff19;
+
+    --track: #dce8d5;
+    --input-bg: #f5f5f5;
+    --input-border: #aaaaaa;
+    --hover-bg: #dff2c2;
+    --link: #397cc5;
+    --danger: #b3261e;
+    --danger-dark: #8c1d18;
 }
 
 [data-theme="dark"] {
+    color-scheme: dark;
+
     --bg: #141a13;
     --text: #e8efe4;
     --text-muted: #aab5a5;
@@ -35,6 +47,14 @@
     --shadow: #2c3b27;
     --line: #34432f;
     --nav-bg: #2f5a1e;
+
+    --track: #34432f;
+    --input-bg: #263124;
+    --input-border: #4a5d44;
+    --hover-bg: #2c3b27;
+    --link: #7db3f0;
+    --danger: #ff8a80;
+    --danger-dark: #ffb4ab;
 }
 
 [hidden] {
@@ -77,7 +97,7 @@ button:hover {
     cursor: pointer;
 }
 
-.theme-toggle{
+.theme-toggle {
     width: auto;
     padding: 6px 10px;
     background: transparent;
@@ -86,7 +106,7 @@ button:hover {
     font-size: 18px;
 }
 
-.theme-toggle:hover{
+.theme-toggle:hover {
     background-color: rgba(128, 128, 128, 0.25);
 }
 
@@ -177,7 +197,7 @@ button:hover {
 }
 
 .eyebrow {
-    color: #4d983f;
+    color: var(--accent);
     font-weight: bold;
     margin-bottom: 20px;
     font-size: 16px;
@@ -195,7 +215,7 @@ button:hover {
 }
 
 .hero-description {
-    color: #555555;
+    color: var(--text-muted);
     font-size: 17px;
     line-height: 1.8;
     max-width: 500px;
@@ -208,14 +228,14 @@ button:hover {
 }
 
 .login-prompt a {
-    color: #397cc5;
+    color: var(--link);
     text-decoration: underline;
 }
 
 /* Features section */
 
 .features {
-    background-color: var(--section-alt);
+    background-color: var(--card-bg);
     padding: 75px 8%;
     text-align: center;
 }
@@ -226,7 +246,7 @@ button:hover {
 }
 
 .section-description {
-    color: #666666;
+    color: var(--text-muted);
     margin-bottom: 40px;
 }
 
@@ -237,11 +257,11 @@ button:hover {
 }
 
 .feature-card {
-    background-color: white;
-    border: 2px solid #344b32;
+    background-color: var(--surface);
+    border: 2px solid var(--border);
     border-radius: 16px;
     padding: 30px 20px;
-    box-shadow: 4px 4px 0px #c3e6a0;
+    box-shadow: 4px 4px 0px var(--shadow);
 }
 
 .feature-icon {
@@ -254,12 +274,12 @@ button:hover {
 }
 
 .feature-card p {
-    color: #666666;
+    color: var(--text-muted);
     line-height: 1.7;
     font-size: 14px;
 }
 
-/* Clickable feature card (Task Manager on the home page) */
+/* Clickable feature card (Task Manager and Study Timer on the home page) */
 
 a.feature-card {
     display: block;
@@ -269,7 +289,7 @@ a.feature-card {
 
 a.feature-card:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0px #c3e6a0;
+    box-shadow: 6px 6px 0px var(--shadow);
 }
 
 /* Motivational section */
@@ -277,7 +297,7 @@ a.feature-card:hover {
 .motivation {
     text-align: center;
     padding: 75px 20px;
-    background-color: #eaf8d9;
+    background-color: var(--section-alt);
 }
 
 .motivation h2 {
@@ -287,7 +307,7 @@ a.feature-card:hover {
 
 .motivation p {
     margin-bottom: 25px;
-    color: #555555;
+    color: var(--text-muted);
 }
 
 
@@ -311,9 +331,9 @@ a.feature-card:hover {
     margin-bottom: 25px;
 }
 
-.dashboard-preview > h2:hover{
+.dashboard-preview > h2:hover {
     text-decoration: underline;
-    color: #39752e;
+    color: var(--accent-dark);
 }
 
 /* Progress bar */
@@ -328,7 +348,7 @@ a.feature-card:hover {
 }
 
 .progress-bar {
-    background-color: #dce8d5;
+    background-color: var(--track);
     height: 13px;
     border-radius: 20px;
     overflow: hidden;
@@ -338,18 +358,18 @@ a.feature-card:hover {
 .progress-fill {
     width: 70%;
     height: 100%;
-    background-color: #4d983f;
+    background-color: var(--accent);
 }
 
 .progress-section span {
     font-size: 13px;
-    color: #555555;
+    color: var(--text-muted);
 }
 
 /* Upcoming tasks list */
 
 .preview-tasks {
-    border-top: 1px solid #c6d6bd;
+    border-top: 1px solid var(--line);
     padding-top: 20px;
     margin-bottom: 20px;
 }
@@ -366,14 +386,14 @@ a.feature-card:hover {
     gap: 12px;
     align-items: center;
     background-color: var(--surface);
-    border: 1px solid #d5dfcf;
+    border: 1px solid var(--line);
     border-radius: 8px;
     padding: 12px;
     margin-bottom: 10px;
 }
 
 .task > span {
-    color: #4d983f;
+    color: var(--accent);
     font-size: 20px;
 }
 
@@ -383,14 +403,14 @@ a.feature-card:hover {
 }
 
 .task small {
-    color: #777777;
+    color: var(--text-muted);
     font-size: 12px;
 }
 
 /* Study timer */
 
 .timer-preview {
-    background-color: #eaf8d9;
+    background-color: var(--section-alt);
     border-radius: 12px;
     padding: 18px;
     text-align: center;
@@ -400,7 +420,7 @@ a.feature-card:hover {
 .timer-display {
     font-size: 35px;
     font-weight: bold;
-    color: #39752e;
+    color: var(--accent-dark);
 }
 
 .timer-preview span {
@@ -410,7 +430,7 @@ a.feature-card:hover {
 /* Study buddies */
 
 .leaderboard-preview {
-    border-top: 1px solid #c6d6bd;
+    border-top: 1px solid var(--line);
     padding-top: 20px;
 }
 
@@ -439,7 +459,7 @@ a.feature-card:hover {
 }
 
 .footer-brand p {
-    color: #666666;
+    color: var(--text-muted);
     margin-bottom: 25px;
 }
 
@@ -455,10 +475,10 @@ a.feature-card:hover {
 }
 
 .copyright {
-    border-top: 1px solid #dddddd;
+    border-top: 1px solid var(--line);
     padding-top: 20px;
     font-size: 13px;
-    color: #777777;
+    color: var(--text-muted);
 }
 
 
@@ -479,7 +499,7 @@ a.feature-card:hover {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
-    border: 2px solid #555555;
+    border: 2px solid var(--border);
     border-radius: 24px;
     padding: 35px 40px 25px;
     text-align: center;
@@ -498,7 +518,7 @@ a.feature-card:hover {
 
 .auth-card hr {
     border: none;
-    border-top: 2px solid #333333;
+    border-top: 2px solid var(--border);
     margin-bottom: 20px;
 }
 
@@ -508,7 +528,7 @@ a.feature-card:hover {
 }
 
 .auth-error {
-    color: #b3261e;
+    color: var(--danger);
     font-size: 14px;
     margin-bottom: 15px;
 }
@@ -527,29 +547,31 @@ a.feature-card:hover {
     display: flex;
     align-items: center;
     gap: 10px;
-    border: 1.5px solid #aaaaaa;
+    border: 1.5px solid var(--input-border);
     border-radius: 8px;
-    background-color: #f5f5f5;
+    background-color: var(--input-bg);
     padding: 10px 12px;
     margin-bottom: 18px;
 }
 
-.input-wrap input {
-    flex: 1;
-    border: none;
-    outline: none;
-    background: transparent;
-    font-family: 'Lora', serif;
-    font-size: 16px;
-}
-
+.input-wrap input,
 .input-wrap select {
     flex: 1;
     border: none;
     outline: none;
     background: transparent;
+    color: var(--text);
     font-family: 'Lora', serif;
     font-size: 16px;
+}
+
+.input-wrap input::placeholder {
+    color: var(--text-muted);
+}
+
+.input-wrap select option {
+    background: var(--surface);
+    color: var(--text);
 }
 
 /* Submit button and links */
@@ -577,7 +599,7 @@ a.feature-card:hover {
 
 .auth-switch a,
 .forgot-link {
-    color: #397cc5;
+    color: var(--link);
     text-decoration: underline;
 }
 
@@ -638,7 +660,7 @@ a.feature-card:hover {
 /* Task list: complete and edit buttons */
 
 .empty-tasks {
-    color: #777777;
+    color: var(--text-muted);
     font-size: 14px;
 }
 
@@ -650,7 +672,7 @@ a.feature-card:hover {
     width: auto;
     padding: 0;
     background: none;
-    color: #4d983f;
+    color: var(--accent);
     font-size: 22px;
     line-height: 1;
     border-radius: 0;
@@ -658,12 +680,12 @@ a.feature-card:hover {
 
 .dashboard-preview .task-check:hover {
     background: none;
-    color: #39752e;
+    color: var(--accent-dark);
 }
 
 .task-done strong {
     text-decoration: line-through;
-    color: #888888;
+    color: var(--text-muted);
 }
 
 .dashboard-preview .task-edit {
@@ -671,16 +693,18 @@ a.feature-card:hover {
     margin-left: auto;
     padding: 4px 6px;
     background: none;
-    color: #888888;
+    color: var(--text-muted);
     font-size: 18px;
     line-height: 1;
     border-radius: 6px;
 }
 
 .dashboard-preview .task-edit:hover {
-    background: #eaf8d9;
-    color: #39752e;
+    background: var(--section-alt);
+    color: var(--accent-dark);
 }
+
+/* Clickable timer card */
 
 .quick-timer {
     cursor: pointer;
@@ -688,7 +712,7 @@ a.feature-card:hover {
 }
 
 .quick-timer:hover {
-    background: #dff2c2;
+    background: var(--hover-bg);
     transform: translateY(-2px);
 }
 
@@ -701,6 +725,7 @@ a.feature-card:hover {
     margin: auto;
     border: none;
     background: transparent;
+    color: var(--text);
     padding: 0;
     width: 90%;
     max-width: 460px;
@@ -727,7 +752,7 @@ a.feature-card:hover {
 
 .modal-card {
     position: relative;
-    background: #ffffff;
+    background: var(--surface);
 }
 
 .auth-card .modal-close {
@@ -738,20 +763,19 @@ a.feature-card:hover {
     margin: 0;
     padding: 0;
     background: none;
-    color: #222222;
+    color: var(--text);
     font-size: 28px;
     line-height: 1;
 }
 
 .auth-card .modal-close:hover {
     background: none;
-    color: #b3261e;
+    color: var(--danger);
 }
-
 
 .auth-card .modal-delete {
     background: none;
-    color: #b3261e;
+    color: var(--danger);
     font-size: 14px;
     font-weight: bold;
     margin-top: 12px;
@@ -760,12 +784,13 @@ a.feature-card:hover {
 
 .auth-card .modal-delete:hover {
     background: none;
-    color: #8c1d18;
+    color: var(--danger-dark);
     text-decoration: underline;
 }
 
+
 /* =========================
-   10. Timer
+   10. TIMER
 ========================= */
 
 .timer-presets {
@@ -780,25 +805,25 @@ a.feature-card:hover {
     margin: 0;
     padding: 6px 16px;
     font-size: 14px;
-    background: #eaf8d9;
-    color: #39752e;
-    border: 1.5px solid #c3e6a0;
+    background: var(--section-alt);
+    color: var(--accent-dark);
+    border: 1.5px solid var(--shadow);
 }
 
 .auth-card .timer-preset:hover {
-    background: #c3e6a0;
+    background: var(--shadow);
 }
 
 .timer-big {
     font-family: 'DM Serif Display', serif;
     font-size: 72px;
     line-height: 1;
-    color: #39752e;
+    color: var(--accent-dark);
     margin: 10px 0 8px;
 }
 
 .timer-status {
-    color: #555555;
+    color: var(--text-muted);
     font-size: 14px;
     margin-bottom: 22px;
 }
@@ -817,13 +842,14 @@ a.feature-card:hover {
 
 .auth-card .timer-secondary {
     background: none;
-    color: #555555;
-    border: 1.5px solid #aaaaaa;
+    color: var(--text-muted);
+    border: 1.5px solid var(--input-border);
 }
 
 .auth-card .timer-secondary:hover {
-    background: #f0f0f0;
+    background: var(--input-bg);
 }
+
 
 /* =========================
    11. LEADERBOARD PAGE
@@ -878,7 +904,7 @@ progress {
 
 
 /* =========================
-   11. RESPONSIVE DESIGN
+   12. RESPONSIVE DESIGN
 ========================= */
 
 @media (max-width: 1000px) {
