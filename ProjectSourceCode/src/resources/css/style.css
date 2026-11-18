@@ -716,6 +716,16 @@ a.feature-card:hover {
     transform: translateY(-2px);
 }
 
+/* Upcoming tasks box opens the dashboard pop-up */
+
+.dashboard-wide .preview-tasks {
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+.dashboard-wide .preview-tasks:hover {
+    transform: translateY(-2px);
+}
 
 /* =========================
    9. POP-UPS (ADD / EDIT / DELETE ASSIGNMENT)
@@ -848,6 +858,162 @@ a.feature-card:hover {
 
 .auth-card .timer-secondary:hover {
     background: var(--input-bg);
+}
+
+/* =========================
+   STUDY DASHBOARD POP-UP
+========================= */
+
+.dashboard-modal {
+    max-width: 680px;
+}
+
+.dashboard-modal .modal-card {
+    max-width: 100%;
+    padding: 30px 28px 24px;
+}
+
+.dashboard-modal .dash-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-right: 28px;
+}
+
+.dashboard-modal .dash-header h1 {
+    margin-bottom: 0;
+}
+
+.auth-card .dash-toggle {
+    width: auto;
+    margin: 0;
+    padding: 6px 10px;
+    font-size: 20px;
+    line-height: 1;
+    background: var(--section-alt);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+}
+
+.auth-card .dash-toggle:hover {
+    background: var(--hover-bg);
+}
+
+.dash-scroll {
+    max-height: 55vh;
+    overflow-y: auto;
+    text-align: left;
+    padding-right: 4px;
+}
+
+.auth-card .dash-check {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    background: none;
+    color: var(--accent);
+    font-size: 22px;
+    line-height: 1;
+    border-radius: 0;
+}
+
+.auth-card .dash-check:hover {
+    background: none;
+    color: var(--accent-dark);
+}
+
+.overdue-tag {
+    color: var(--danger);
+    font-weight: bold;
+}
+
+/* Calendar view */
+
+.cal-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.cal-nav strong {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+}
+
+.auth-card .cal-btn {
+    width: auto;
+    margin: 0;
+    padding: 4px 14px;
+    font-size: 20px;
+    line-height: 1;
+    background: var(--section-alt);
+    color: var(--text);
+    border: 1.5px solid var(--line);
+    border-radius: 8px;
+}
+
+.auth-card .cal-btn:hover {
+    background: var(--hover-bg);
+}
+
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.cal-dow {
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--text-muted);
+    padding-bottom: 4px;
+}
+
+.cal-cell {
+    min-height: 70px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 4px;
+    background: var(--surface);
+    overflow: hidden;
+    text-align: left;
+}
+
+.cal-empty {
+    background: none;
+    border-color: transparent;
+}
+
+.cal-today {
+    border: 2px solid var(--accent);
+}
+
+.cal-num {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.cal-chip {
+    margin-top: 3px;
+    padding: 2px 4px;
+    font-size: 11px;
+    line-height: 1.2;
+    border-radius: 4px;
+    background: var(--accent);
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cal-chip-done {
+    background: var(--track);
+    color: var(--text-muted);
+    text-decoration: line-through;
 }
 
 

@@ -66,6 +66,17 @@ app.get('/home', async (req, res) => {
             [userId]
         );
 
+        const allAssignments = await db.any(
+            `SELECT id, title, course, completed,
+                    (due_date < CURRENT_DATE AND NOT completed) AS overdue,
+                    to_char(due_date, 'Mon FMDD') AS due_label,
+                    to_char(due_date, 'YYYY-MM-DD') AS due_iso
+             FROM assignments
+             WHERE user_id = $1
+             ORDER BY completed, due_date`,
+            [userId]
+        );
+
         const week = await db.one(
             `SELECT COUNT(*)::int AS total,
                     COUNT(*) FILTER (WHERE completed)::int AS done
@@ -85,6 +96,8 @@ app.get('/home', async (req, res) => {
         res.render('home', {
             username: req.session.user.username,
             assignments,
+            allAssignments,
+            assignmentsJson: JSON.stringify(allAssignments).replace(/</g, '\\u003c'),
             courses,
             total: week.total,
             done: week.done,
