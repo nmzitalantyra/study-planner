@@ -274,6 +274,10 @@ app.post('/assignments/:id/delete', async (req, res) => {
 });
 
 app.get('/leaderboard', (req, res) => {
+    if (!req.session.user) {
+        return res.redirect('/login');
+    }
+    
     res.render('leaderboard');
 });
 
