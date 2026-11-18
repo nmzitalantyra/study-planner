@@ -1,0 +1,184 @@
+<dialog id="dashboard-modal" class="task-modal dashboard-modal">
+    <div class="auth-card modal-card">
+        <button type="button" class="modal-close" aria-label="Close">×</button>
+
+        <div class="dash-header">
+            <h1 id="dash-title">My To-Do List</h1>
+            <button type="button" id="dash-toggle" class="dash-toggle" aria-label="Switch to calendar view" title="Calendar view">📅</button>
+        </div>
+
+        <div id="dash-list-view" class="dash-scroll">
+            {{#each allAssignments}}
+                <div class="task {{#if completed}}task-done{{/if}}">
+                    <form action="/assignments/{{id}}/toggle" method="post" class="task-check-form">
+                        <button type="submit" class="dash-check" aria-label="Toggle complete">{{#if completed}}✓{{else}}○{{/if}}</button>
+                    </form>
+                    <div>
+                        <strong>{{title}}</strong>
+                        <small>{{course}} · Due {{due_label}}{{#if overdue}} · <span class="overdue-tag">Overdue</span>{{/if}}</small>
+                    </div>
+                </div>
+            {{else}}
+                <p class="empty-tasks">No assignments yet. Add one with Task Manager.</p>
+            {{/each}}
+        </div>
+
+        <div id="dash-calendar-view" hidden>
+            <div class="cal-nav">
+                <button type="button" id="cal-prev" class="cal-btn" aria-label="Previous month">‹</button>
+                <strong id="cal-month"></strong>
+                <button type="button" id="cal-next" class="cal-btn" aria-label="Next month">›</button>
+            </div>
+            <div class="cal-grid" id="cal-grid"></div>
+        </div>
+
+        <script type="application/json" id="dash-data">{{{assignmentsJson}}}</script>
+    </div>
+</dialog>
+
+<script>
+    (function () {
+        const modal = document.getElementById('dashboard-modal');
+        const listView = document.getElementById('dash-list-view');
+        const calView = document.getElementById('dash-calendar-view');
+        const toggle = document.getElementById('dash-toggle');
+        const title = document.getElementById('dash-title');
+        const monthLabel = document.getElementById('cal-month');
+        const grid = document.getElementById('cal-grid');
+
+        const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+            'August', 'September', 'October', 'November', 'December'];
+        const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+        let data = [];
+        try {
+            data = JSON.parse(document.getElementById('dash-data').textContent) || [];
+        } catch (e) {
+            data = [];
+        }
+
+        const today = new Date();
+        let year = today.getFullYear();
+        let month = today.getMonth();
+
+        function pad(n) {
+            return String(n).padStart(2, '0');
+        }
+
+        function key(y, m, d) {
+            return y + '-' + pad(m + 1) + '-' + pad(d);
+        }
+
+        function renderCalendar() {
+            monthLabel.textContent = MONTHS[month] + ' ' + year;
+
+            const byDate = {};
+            data.forEach((a) => {
+                (byDate[a.due_iso] = byDate[a.due_iso] || []).push(a);
+            });
+
+            grid.innerHTML = '';
+
+            DAYS.forEach((d) => {
+                const head = document.createElement('div');
+                head.className = 'cal-dow';
+                head.textContent = d;
+                grid.appendChild(head);
+            });
+
+            const firstWeekday = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const todayKey = key(today.getFullYear(), today.getMonth(), today.getDate());
+
+            for (let i = 0; i < firstWeekday; i++) {
+                const blank = document.createElement('div');
+                blank.className = 'cal-cell cal-empty';
+                grid.appendChild(blank);
+            }
+
+            for (let d = 1; d <= daysInMonth; d++) {
+                const k = key(year, month, d);
+                const cell = document.createElement('div');
+                cell.className = 'cal-cell' + (k === todayKey ? ' cal-today' : '');
+
+                const num = document.createElement('span');
+                num.className = 'cal-num';
+                num.textContent = d;
+                cell.appendChild(num);
+
+                (byDate[k] || []).forEach((a) => {
+                    const chip = document.createElement('div');
+                    chip.className = 'cal-chip' + (a.completed ? ' cal-chip-done' : '');
+                    chip.textContent = a.title;
+                    chip.title = a.title + ' · ' + a.course;
+                    cell.appendChild(chip);
+                });
+
+                grid.appendChild(cell);
+            }
+        }
+
+        function setView(showCalendar) {
+            listView.hidden = showCalendar;
+            calView.hidden = !showCalendar;
+            title.textContent = showCalendar ? 'My Calendar' : 'My To-Do List';
+            toggle.textContent = showCalendar ? '📝' : '📅';
+            toggle.title = showCalendar ? 'To-do list' : 'Calendar view';
+            toggle.setAttribute('aria-label', showCalendar ? 'Switch to to-do list' : 'Switch to calendar view');
+            if (showCalendar) {
+                renderCalendar();
+            }
+        }
+
+        function openDashboard() {
+            setView(false);
+            modal.showModal();
+        }
+
+        toggle.addEventListener('click', () => setView(calView.hidden));
+
+        document.getElementById('cal-prev').addEventListener('click', () => {
+            month -= 1;
+            if (month < 0) {
+                month = 11;
+                year -= 1;
+            }
+            renderCalendar();
+        });
+
+        document.getElementById('cal-next').addEventListener('click', () => {
+            month += 1;
+            if (month > 11) {
+                month = 0;
+                year += 1;
+            }
+            renderCalendar();
+        });
+
+        // The Study Dashboard feature card opens the pop-up
+        document.querySelectorAll('.open-dashboard').forEach((el) => {
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                openDashboard();
+            });
+        });
+
+        // The Upcoming Tasks box opens it too (skips clicks on its own buttons)
+        document.querySelectorAll('.preview-tasks').forEach((box) => {
+            box.addEventListener('click', (e) => {
+                if (e.target.closest('button, form, a')) {
+                    return;
+                }
+                openDashboard();
+            });
+        });
+
+        modal.querySelector('.modal-close').addEventListener('click', () => modal.close());
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.close();
+            }
+        });
+    })();
+</script>
