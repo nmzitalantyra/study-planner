@@ -134,7 +134,7 @@ button:hover {
    3. NAVIGATION BAR
 ========================= */
 
-.navbar {
+.site-nav {
     background-color: var(--nav-bg);
     border: 2px solid #222222;
     padding: 18px 5%;
@@ -345,7 +345,7 @@ a.feature-card:hover {
     font-weight: bold;
 }
 
-.progress-bar {
+.sprout-progress {
     background-color: var(--track);
     height: 13px;
     border-radius: 20px;
@@ -1037,7 +1037,7 @@ a.feature-card:hover {
     padding: 24px;
 }
 
-.card {
+.dash-card {
     padding: 16px;
     border: 1.5px solid var(--outline);
     border-radius: 16px;
@@ -1102,7 +1102,7 @@ progress {
 
 @media (max-width: 700px) {
 
-    .navbar {
+    .site-nav {
         flex-direction: column;
         gap: 18px;
     }
