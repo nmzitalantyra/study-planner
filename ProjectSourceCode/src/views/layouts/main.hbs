@@ -50,6 +50,19 @@
     });
 
     updateIcon();
+
+    document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.pw-toggle');
+    if (!btn) return;
+
+    var input = btn.closest('.input-wrap').querySelector('input');
+    var show = input.type === 'password';
+
+    input.type = show ? 'text' : 'password';
+    btn.classList.toggle('showing', show);
+    btn.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+});
+
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

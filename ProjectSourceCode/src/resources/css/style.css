@@ -530,6 +530,54 @@ a.feature-card:hover {
     font-size: 14px;
     margin-bottom: 15px;
 }
+.auth-card .pw-toggle {
+    display: grid;
+    place-items: center;
+    width: auto;
+    margin: 0;
+    padding: 0 4px;
+    background: none;
+    color: var(--text-muted);
+    line-height: 1;
+    border-radius: 0;
+    transition: color 0.2s ease;
+}
+
+.auth-card .pw-toggle:hover {
+    background: none;
+    color: var(--text);
+}
+
+/* Both icons share one grid cell so they can crossfade */
+.pw-toggle svg {
+    grid-area: 1 / 1;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Password hidden: eye visible, crossed-out eye tucked away */
+.pw-toggle .icon-eye-off {
+    opacity: 0;
+    transform: scale(0.6) rotate(-20deg);
+}
+
+/* Password shown: swap them */
+.pw-toggle.showing .icon-eye {
+    opacity: 0;
+    transform: scale(0.6) rotate(20deg);
+}
+
+.pw-toggle.showing .icon-eye-off {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+}
+
+/* Respect people who turn off motion in their system settings */
+@media (prefers-reduced-motion: reduce) {
+    .auth-card .pw-toggle,
+    .pw-toggle svg {
+        transition: none;
+    }
+}
 
 /* Form fields */
 
