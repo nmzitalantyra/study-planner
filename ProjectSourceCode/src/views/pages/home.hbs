@@ -60,10 +60,10 @@
             </div>
 
 
-            <div class="timer-preview">
+            <div class="timer-preview quick-timer" role="button" tabindex="0" aria-label="Start a 60 minute study timer">
                 <h3>Study Timer ⏱️</h3>
-                <p class="timer-display">25:00</p>
-                <span>Focus on your goals!</span>
+                <p class="timer-display">60:00</p>
+                <span>Click to start a 60 minute session</span>
             </div>
 
 
@@ -100,23 +100,23 @@
                 </p>
             </a>
 
-            <div class="feature-card">
+            <a href="#" class="feature-card open-dashboard">
                 <span class="feature-icon">📊</span>
                 <h3>Study Dashboard</h3>
                 <p>
                     Keep your academic responsibilities
                     and progress organized in one place.
                 </p>
-            </div>
+            </a>
 
-            <div class="feature-card">
+            <a href="#" class="feature-card open-timer">
                 <span class="feature-icon">⏱️</span>
                 <h3>Study Timer</h3>
                 <p>
                     Stay focused and manage your
                     study sessions effectively.
                 </p>
-            </div>
+            </a>
 
             <div class="feature-card">
                 <span class="feature-icon">🏆</span>
@@ -148,5 +148,7 @@
 
 {{> tasks}}
 {{> edit_tasks}}
+{{> timer}}
+{{> dashboard}}
 
 {{> footer}}

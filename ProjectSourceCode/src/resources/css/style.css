@@ -8,6 +8,8 @@
 ========================= */
 
 :root {
+    color-scheme: light;
+
     --bg: #ffffff;
     --text: #222222;
     --text-muted: #555555;
@@ -20,11 +22,11 @@
     --shadow: #c3e6a0;
     --line: #c6d6bd;
     --nav-bg: #a8ff19;
-    --panel-bg: hsl(90, 12%, 80%);
-    --outline: #000000;
 }
 
 [data-theme="dark"] {
+    color-scheme: dark;
+
     --bg: #141a13;
     --text: #e8efe4;
     --text-muted: #aab5a5;
@@ -37,8 +39,6 @@
     --shadow: #2c3b27;
     --line: #34432f;
     --nav-bg: #2f5a1e;
-    --panel-bg: #1b231a;
-    --outline: #7a9a70;
 }
 
 * {
@@ -77,7 +77,7 @@ button:hover {
     cursor: pointer;
 }
 
-.theme-toggle{
+.theme-toggle {
     width: auto;
     padding: 6px 10px;
     background: transparent;
@@ -86,7 +86,7 @@ button:hover {
     font-size: 18px;
 }
 
-.theme-toggle:hover{
+.theme-toggle:hover {
     background-color: rgba(128, 128, 128, 0.25);
 }
 
@@ -177,7 +177,7 @@ button:hover {
 }
 
 .eyebrow {
-    color: #4d983f;
+    color: var(--accent);
     font-weight: bold;
     margin-bottom: 20px;
     font-size: 16px;
@@ -195,7 +195,7 @@ button:hover {
 }
 
 .hero-description {
-    color: #555555;
+    color: var(--text-muted);
     font-size: 17px;
     line-height: 1.8;
     max-width: 500px;
@@ -208,14 +208,14 @@ button:hover {
 }
 
 .login-prompt a {
-    color: #397cc5;
+    color: var(--link);
     text-decoration: underline;
 }
 
 /* Features section */
 
 .features {
-    background-color: var(--section-alt);
+    background-color: var(--card-bg);
     padding: 75px 8%;
     text-align: center;
 }
@@ -226,7 +226,7 @@ button:hover {
 }
 
 .section-description {
-    color: #666666;
+    color: var(--text-muted);
     margin-bottom: 40px;
 }
 
@@ -237,11 +237,11 @@ button:hover {
 }
 
 .feature-card {
-    background-color: white;
-    border: 2px solid #344b32;
+    background-color: var(--surface);
+    border: 2px solid var(--border);
     border-radius: 16px;
     padding: 30px 20px;
-    box-shadow: 4px 4px 0px #c3e6a0;
+    box-shadow: 4px 4px 0px var(--shadow);
 }
 
 .feature-icon {
@@ -254,12 +254,12 @@ button:hover {
 }
 
 .feature-card p {
-    color: #666666;
+    color: var(--text-muted);
     line-height: 1.7;
     font-size: 14px;
 }
 
-/* Clickable feature card (Task Manager on the home page) */
+/* Clickable feature card (Task Manager and Study Timer on the home page) */
 
 a.feature-card {
     display: block;
@@ -269,7 +269,7 @@ a.feature-card {
 
 a.feature-card:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0px #c3e6a0;
+    box-shadow: 6px 6px 0px var(--shadow);
 }
 
 /* Motivational section */
@@ -277,7 +277,7 @@ a.feature-card:hover {
 .motivation {
     text-align: center;
     padding: 75px 20px;
-    background-color: #eaf8d9;
+    background-color: var(--section-alt);
 }
 
 .motivation h2 {
@@ -287,7 +287,7 @@ a.feature-card:hover {
 
 .motivation p {
     margin-bottom: 25px;
-    color: #555555;
+    color: var(--text-muted);
 }
 
 
@@ -311,9 +311,9 @@ a.feature-card:hover {
     margin-bottom: 25px;
 }
 
-.dashboard-preview > h2:hover{
+.dashboard-preview > h2:hover {
     text-decoration: underline;
-    color: #39752e;
+    color: var(--accent-dark);
 }
 
 /* Progress bar */
@@ -328,7 +328,7 @@ a.feature-card:hover {
 }
 
 .progress-bar {
-    background-color: #dce8d5;
+    background-color: var(--track);
     height: 13px;
     border-radius: 20px;
     overflow: hidden;
@@ -338,18 +338,18 @@ a.feature-card:hover {
 .progress-fill {
     width: 70%;
     height: 100%;
-    background-color: #4d983f;
+    background-color: var(--accent);
 }
 
 .progress-section span {
     font-size: 13px;
-    color: #555555;
+    color: var(--text-muted);
 }
 
 /* Upcoming tasks list */
 
 .preview-tasks {
-    border-top: 1px solid #c6d6bd;
+    border-top: 1px solid var(--line);
     padding-top: 20px;
     margin-bottom: 20px;
 }
@@ -366,14 +366,14 @@ a.feature-card:hover {
     gap: 12px;
     align-items: center;
     background-color: var(--surface);
-    border: 1px solid #d5dfcf;
+    border: 1px solid var(--line);
     border-radius: 8px;
     padding: 12px;
     margin-bottom: 10px;
 }
 
 .task > span {
-    color: #4d983f;
+    color: var(--accent);
     font-size: 20px;
 }
 
@@ -383,14 +383,14 @@ a.feature-card:hover {
 }
 
 .task small {
-    color: #777777;
+    color: var(--text-muted);
     font-size: 12px;
 }
 
 /* Study timer */
 
 .timer-preview {
-    background-color: #eaf8d9;
+    background-color: var(--section-alt);
     border-radius: 12px;
     padding: 18px;
     text-align: center;
@@ -400,7 +400,7 @@ a.feature-card:hover {
 .timer-display {
     font-size: 35px;
     font-weight: bold;
-    color: #39752e;
+    color: var(--accent-dark);
 }
 
 .timer-preview span {
@@ -410,7 +410,7 @@ a.feature-card:hover {
 /* Study buddies */
 
 .leaderboard-preview {
-    border-top: 1px solid #c6d6bd;
+    border-top: 1px solid var(--line);
     padding-top: 20px;
 }
 
@@ -439,7 +439,7 @@ a.feature-card:hover {
 }
 
 .footer-brand p {
-    color: #666666;
+    color: var(--text-muted);
     margin-bottom: 25px;
 }
 
@@ -455,10 +455,10 @@ a.feature-card:hover {
 }
 
 .copyright {
-    border-top: 1px solid #dddddd;
+    border-top: 1px solid var(--line);
     padding-top: 20px;
     font-size: 13px;
-    color: #777777;
+    color: var(--text-muted);
 }
 
 
@@ -479,7 +479,7 @@ a.feature-card:hover {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
-    border: 2px solid #555555;
+    border: 2px solid var(--border);
     border-radius: 24px;
     padding: 35px 40px 25px;
     text-align: center;
@@ -498,7 +498,7 @@ a.feature-card:hover {
 
 .auth-card hr {
     border: none;
-    border-top: 2px solid #333333;
+    border-top: 2px solid var(--border);
     margin-bottom: 20px;
 }
 
@@ -508,7 +508,7 @@ a.feature-card:hover {
 }
 
 .auth-error {
-    color: #b3261e;
+    color: var(--danger);
     font-size: 14px;
     margin-bottom: 15px;
 }
@@ -527,29 +527,31 @@ a.feature-card:hover {
     display: flex;
     align-items: center;
     gap: 10px;
-    border: 1.5px solid #aaaaaa;
+    border: 1.5px solid var(--input-border);
     border-radius: 8px;
-    background-color: #f5f5f5;
+    background-color: var(--input-bg);
     padding: 10px 12px;
     margin-bottom: 18px;
 }
 
-.input-wrap input {
-    flex: 1;
-    border: none;
-    outline: none;
-    background: transparent;
-    font-family: 'Lora', serif;
-    font-size: 16px;
-}
-
+.input-wrap input,
 .input-wrap select {
     flex: 1;
     border: none;
     outline: none;
     background: transparent;
+    color: var(--text);
     font-family: 'Lora', serif;
     font-size: 16px;
+}
+
+.input-wrap input::placeholder {
+    color: var(--text-muted);
+}
+
+.input-wrap select option {
+    background: var(--surface);
+    color: var(--text);
 }
 
 /* Submit button and links */
@@ -577,7 +579,7 @@ a.feature-card:hover {
 
 .auth-switch a,
 .forgot-link {
-    color: #397cc5;
+    color: var(--link);
     text-decoration: underline;
 }
 
@@ -638,7 +640,7 @@ a.feature-card:hover {
 /* Task list: complete and edit buttons */
 
 .empty-tasks {
-    color: #777777;
+    color: var(--text-muted);
     font-size: 14px;
 }
 
@@ -650,7 +652,7 @@ a.feature-card:hover {
     width: auto;
     padding: 0;
     background: none;
-    color: #4d983f;
+    color: var(--accent);
     font-size: 22px;
     line-height: 1;
     border-radius: 0;
@@ -658,12 +660,12 @@ a.feature-card:hover {
 
 .dashboard-preview .task-check:hover {
     background: none;
-    color: #39752e;
+    color: var(--accent-dark);
 }
 
 .task-done strong {
     text-decoration: line-through;
-    color: #888888;
+    color: var(--text-muted);
 }
 
 .dashboard-preview .task-edit {
@@ -671,26 +673,49 @@ a.feature-card:hover {
     margin-left: auto;
     padding: 4px 6px;
     background: none;
-    color: #888888;
+    color: var(--text-muted);
     font-size: 18px;
     line-height: 1;
     border-radius: 6px;
 }
 
 .dashboard-preview .task-edit:hover {
-    background: #eaf8d9;
-    color: #39752e;
+    background: var(--section-alt);
+    color: var(--accent-dark);
 }
 
+/* Clickable timer card */
+
+.quick-timer {
+    cursor: pointer;
+    transition: transform 0.15s, background 0.15s;
+}
+
+.quick-timer:hover {
+    background: var(--hover-bg);
+    transform: translateY(-2px);
+}
+
+/* Upcoming tasks box opens the dashboard pop-up */
+
+.dashboard-wide .preview-tasks {
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+.dashboard-wide .preview-tasks:hover {
+    transform: translateY(-2px);
+}
 
 /* =========================
-   9. POP-UPS (ADD / EDIT ASSIGNMENT)
+   9. POP-UPS (ADD / EDIT / DELETE ASSIGNMENT)
 ========================= */
 
 .task-modal {
     margin: auto;
     border: none;
     background: transparent;
+    color: var(--text);
     padding: 0;
     width: 90%;
     max-width: 460px;
@@ -717,7 +742,7 @@ a.feature-card:hover {
 
 .modal-card {
     position: relative;
-    background: #ffffff;
+    background: var(--surface);
 }
 
 .auth-card .modal-close {
@@ -728,19 +753,252 @@ a.feature-card:hover {
     margin: 0;
     padding: 0;
     background: none;
-    color: #222222;
+    color: var(--text);
     font-size: 28px;
     line-height: 1;
 }
 
 .auth-card .modal-close:hover {
     background: none;
-    color: #b3261e;
+    color: var(--danger);
+}
+
+.auth-card .modal-delete {
+    background: none;
+    color: var(--danger);
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 12px;
+    padding: 6px;
+}
+
+.auth-card .modal-delete:hover {
+    background: none;
+    color: var(--danger-dark);
+    text-decoration: underline;
 }
 
 
 /* =========================
-   10. LEADERBOARD PAGE
+   10. TIMER
+========================= */
+
+.timer-presets {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.auth-card .timer-preset {
+    width: auto;
+    margin: 0;
+    padding: 6px 16px;
+    font-size: 14px;
+    background: var(--section-alt);
+    color: var(--accent-dark);
+    border: 1.5px solid var(--shadow);
+}
+
+.auth-card .timer-preset:hover {
+    background: var(--shadow);
+}
+
+.timer-big {
+    font-family: 'DM Serif Display', serif;
+    font-size: 72px;
+    line-height: 1;
+    color: var(--accent-dark);
+    margin: 10px 0 8px;
+}
+
+.timer-status {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.auth-card .timer-controls button {
+    width: auto;
+    min-width: 110px;
+    margin: 0;
+}
+
+.auth-card .timer-secondary {
+    background: none;
+    color: var(--text-muted);
+    border: 1.5px solid var(--input-border);
+}
+
+.auth-card .timer-secondary:hover {
+    background: var(--input-bg);
+}
+
+/* =========================
+   STUDY DASHBOARD POP-UP
+========================= */
+
+.dashboard-modal {
+    max-width: 680px;
+}
+
+.dashboard-modal .modal-card {
+    max-width: 100%;
+    padding: 30px 28px 24px;
+}
+
+.dashboard-modal .dash-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-right: 28px;
+}
+
+.dashboard-modal .dash-header h1 {
+    margin-bottom: 0;
+}
+
+.auth-card .dash-toggle {
+    width: auto;
+    margin: 0;
+    padding: 6px 10px;
+    font-size: 20px;
+    line-height: 1;
+    background: var(--section-alt);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+}
+
+.auth-card .dash-toggle:hover {
+    background: var(--hover-bg);
+}
+
+.dash-scroll {
+    max-height: 55vh;
+    overflow-y: auto;
+    text-align: left;
+    padding-right: 4px;
+}
+
+.auth-card .dash-check {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    background: none;
+    color: var(--accent);
+    font-size: 22px;
+    line-height: 1;
+    border-radius: 0;
+}
+
+.auth-card .dash-check:hover {
+    background: none;
+    color: var(--accent-dark);
+}
+
+.overdue-tag {
+    color: var(--danger);
+    font-weight: bold;
+}
+
+/* Calendar view */
+
+.cal-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.cal-nav strong {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+}
+
+.auth-card .cal-btn {
+    width: auto;
+    margin: 0;
+    padding: 4px 14px;
+    font-size: 20px;
+    line-height: 1;
+    background: var(--section-alt);
+    color: var(--text);
+    border: 1.5px solid var(--line);
+    border-radius: 8px;
+}
+
+.auth-card .cal-btn:hover {
+    background: var(--hover-bg);
+}
+
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.cal-dow {
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--text-muted);
+    padding-bottom: 4px;
+}
+
+.cal-cell {
+    min-height: 70px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 4px;
+    background: var(--surface);
+    overflow: hidden;
+    text-align: left;
+}
+
+.cal-empty {
+    background: none;
+    border-color: transparent;
+}
+
+.cal-today {
+    border: 2px solid var(--accent);
+}
+
+.cal-num {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.cal-chip {
+    margin-top: 3px;
+    padding: 2px 4px;
+    font-size: 11px;
+    line-height: 1.2;
+    border-radius: 4px;
+    background: var(--accent);
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cal-chip-done {
+    background: var(--track);
+    color: var(--text-muted);
+    text-decoration: line-through;
+}
+
+
+/* =========================
+   11. LEADERBOARD PAGE
 ========================= */
 
 .dashboard-page {
@@ -793,7 +1051,7 @@ progress {
 
 
 /* =========================
-   11. RESPONSIVE DESIGN
+   12. RESPONSIVE DESIGN
 ========================= */
 
 @media (max-width: 1000px) {
